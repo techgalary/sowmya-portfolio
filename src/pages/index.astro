@@ -75,7 +75,6 @@ const articles = [
     <div class="repo-grid">
       {repos.map((r, i) => <article class="repo-card"><div class="repo-top"><span class="repo-symbol">⌘</span><span class="repo-number">REPOSITORY / 0{i+1}</span></div><h3>{r.name}</h3><p>{r.desc}</p><div class="tag-row">{r.tags.map((t) => <span>{t}</span>)}</div><a href={r.url} class="text-link" target="_blank" rel="noreferrer">View on GitHub ↗</a></article>)}
     </div>
-    <p class="note">Repository cards are starting points and may point to the TechGalary organization/profile until individual repository URLs are added. Replace them with specific public repositories before launch.</p>
   </section>
 
   <section class="section articles-section" id="articles">
