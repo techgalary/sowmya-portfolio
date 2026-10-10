@@ -24,6 +24,8 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Build static site
+        env:
+          GITHUB_PAGES: 'true'
         run: npm run build
       - name: Upload Pages artifact (main branch only)
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
