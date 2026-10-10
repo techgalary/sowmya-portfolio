@@ -26,8 +26,8 @@ const articles = [
       <h1>Cloud &amp; DevOps<br /><span class="accent">with a focus on reliability.</span></h1>
       <p class="hero-text">I work with AWS, Azure, and Google Cloud to manage cloud infrastructure and support Kubernetes-based applications. I use Terraform and CI/CD automation to make deployments more consistent, and monitoring tools to investigate production issues. I’m also exploring Nextcloud and self-hosted infrastructure.</p>
       <div class="hero-actions">
-        <a class="button button-primary" href="/projects/">Explore my work <span>↗</span></a>
-        <a class="button button-secondary" href="/consultation/">Let's connect</a>
+        <a class="button button-primary" href={`${import.meta.env.BASE_URL}projects/`}>Explore my work <span>↗</span></a>
+        <a class="button button-secondary" href={`${import.meta.env.BASE_URL}consultation/`}>Let's connect</a>
       </div>
       <div class="quick-facts">
         <div><strong>Cloud platforms</strong><span>AWS · Azure · Google Cloud</span></div>
