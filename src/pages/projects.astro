@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const projects = [
+  { title: 'Multi-Cloud Banking Platform (Hub–Spoke Architecture)', description: 'Supported a hybrid banking platform across Azure and Google Cloud using a hub-and-spoke network design. Worked with Azure Kubernetes Service (AKS), Google Kubernetes Engine (GKE), Azure Key Vault, Apigee API management, and Akamai edge security to support secure application traffic across environments.', tags: ['Azure AKS', 'Google GKE', 'Azure Key Vault', 'Apigee', 'Akamai', 'Hub-and-Spoke Networking'], impact: 'Supported secure connectivity and reliable Kubernetes-based application operations across the hybrid cloud environment.' },
+  { title: 'Cloud Migration & DevOps Pipeline Setup', description: 'Supported lift-and-shift application migration into AWS, helped maintain CI/CD pipelines, and automated infrastructure provisioning with Terraform. Worked with teams running containerized microservices on Kubernetes during migration and release activities.', tags: ['AWS', 'Terraform', 'CI/CD', 'Kubernetes'], impact: 'Helped make migration and deployment activities more repeatable and consistent.' },
+  { title: 'SaaS Learning Platform — CI/CD & Infrastructure', description: 'Supported an internal SaaS-based learning platform using AWS EKS and ECS for container workloads, Lambda functions for event-driven tasks, and Step Functions for workflow orchestration. Used Terraform and CloudFormation to provision and manage infrastructure.', tags: ['AWS EKS', 'AWS ECS', 'Lambda', 'Step Functions', 'Terraform', 'CloudFormation', 'Kubernetes'], impact: 'Supported deployment workflows and stable environments through infrastructure automation and container operations.' },
+  { title: 'CI/CD Pipeline Optimization & Automation', description: 'Worked with Git and GitHub Actions to manage source changes and automate build and deployment workflows. Used monitoring metrics from Prometheus and Grafana to help observe system behaviour and support operational troubleshooting.', tags: ['Git', 'GitHub Actions', 'CI/CD Automation', 'Prometheus', 'Grafana'], impact: 'Supported repeatable delivery workflows and better visibility into application and infrastructure metrics.' },
+  { title: 'Monitoring, Observability & Alerting', description: 'Used Prometheus and Grafana to track infrastructure and application metrics, alongside native cloud monitoring in AWS and Google Cloud. CloudWatch metrics and alarms, Google Cloud Monitoring dashboards and alerting, and monitoring notifications helped surface resource and service issues during operations.', tags: ['Prometheus', 'Grafana', 'AWS CloudWatch', 'Google Cloud Monitoring', 'Metrics', 'Alerts'], impact: 'Improved visibility into resource usage and service health to support troubleshooting and production operations.' }
+];
+---
+<BaseLayout title="Key DevOps Projects | Sowmya Narayan" description="Selected DevOps and cloud engineering projects across hybrid cloud, Kubernetes, Terraform, and CI/CD." active="projects">
+  <section class="projects-heading">
+    <h1>Key DevOps Projects</h1>
+    <p>Selected projects across hybrid cloud, infrastructure automation, CI/CD, Kubernetes, and observability.</p>
+  </section>
+  <section class="key-project-grid">
+    {projects.map((p) => <article class="key-project-card">
+      <h2>{p.title}</h2>
+      <p>{p.description}</p>
+      <div class="key-project-tags">{p.tags.map((tag) => <span>{tag}</span>)}</div>
+      <div class="key-project-impact"><strong>Impact:</strong> {p.impact}</div>
+    </article>)}
+  </section>
+</BaseLayout>

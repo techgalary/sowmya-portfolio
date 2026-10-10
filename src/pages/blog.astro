@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const posts = [
+  {title:'Surviving a Kafka Production Outage on Kubernetes: Lessons from a Real GCP Incident', category:'PRODUCTION RELIABILITY', desc:'A production incident walkthrough covering Kafka alerts, Kubernetes recovery, and troubleshooting across a GCP environment.', href:'https://techgalary.com/surviving-a-kafka-production-outage-on-kubernetes-lessons-from-a-real-gcp-incident'},
+  {title:'Handling Critical Container Vulnerabilities in Kubernetes Using Prisma Cloud', category:'CLOUD SECURITY', desc:'Container vulnerability management and security considerations for Kubernetes workloads.', href:'https://techgalary.com/handling-critical-container-vulnerabilities-in-kubernetes-using-prisma-cloud'},
+  {title:'Troubleshooting Kubernetes Load Balancer Creation Failure Due to Azure Policy Restrictions', category:'AZURE · AKS', desc:'Investigating an AKS load balancer provisioning failure caused by Azure Policy restrictions.', href:'https://techgalary.com/troubleshooting-kubernetes-load-balancer-creation-failure-due-to-azure-policy-restrictions'},
+  {title:'Troubleshooting Azure Load Balancer Data Path Availability Degradation', category:'CLOUD NETWORKING', desc:'A production troubleshooting case involving Azure Load Balancer data-path availability and backend service traffic.', href:'https://techgalary.com/troubleshooting-azure-load-balancer-data-path-availability-degradation'},
+  {title:'JDBC Connectivity Failures and Hikari Connection Pool Timeouts', category:'PRODUCTION INCIDENT', desc:'Investigating JDBC connectivity and connection-pool timeouts affecting authentication and notification services.', href:'https://techgalary.com/a-real-world-production-incident-involving-jdbc-connectivity-failures-and-hikari-connection-pool-timeouts-impacting-authentication-notifications-and'},
+  {title:'PostgreSQL Outage Impacting Login and Microservices Platform', category:'DATABASE RELIABILITY', desc:'A production incident involving PostgreSQL availability and its impact on login and dependent microservices.', href:'https://techgalary.com/production-incident-postgresql-outage-impacting-login-and-microservices-platform'},
+  {title:'MQ Timeout Issue Across Azure and GCP Datacenters', category:'HYBRID CLOUD', desc:'Troubleshooting messaging timeouts across a hybrid environment spanning Azure and Google Cloud.', href:'https://techgalary.com/mq-timeout-issue-azure-gcp-datacenter'},
+  {title:'Automating Helm Chart Cleanup in ChartMuseum', category:'AUTOMATION · HELM', desc:'Automating Helm chart repository cleanup to keep ChartMuseum storage and artifacts manageable.', href:'https://techgalary.com/automating-helm-chart-cleanup-in-chartmuseum'}
+];
+---
+<BaseLayout active="blog" title="Technical Writing | Sowmya Narayan" description="Production engineering notes and cloud-native troubleshooting articles published on TechGalary.">
+  <section class="page-hero">
+    <p class="eyebrow">/ technical writing</p>
+    <h1>Real incidents.<br /><span class="accent">Practical lessons.</span></h1>
+    <p class="hero-text">I document production issues, troubleshoot cloud and Kubernetes environments, and share the solutions and lessons learned along the way. Explore my technical articles on TechGalary, my technical knowledge-sharing website.</p>
+    <div class="hero-actions"><a class="button button-primary" href="https://techgalary.com/" target="_blank" rel="noreferrer">Visit TechGalary <span>↗</span></a></div>
+  </section>
+  <section class="article-grid blog-grid">
+    {posts.map((p,i)=><a class="article-card" href={p.href} target="_blank" rel="noreferrer"><span class="article-index">{String(i+1).padStart(2,'0')}</span><span class="card-index">{p.category}</span><h3>{p.title}</h3><p>{p.desc}</p><span class="article-read">Read on TechGalary ↗</span></a>)}
+  </section>
+  <p class="note">Each link opens the original article on TechGalary. The portfolio highlights my writing; TechGalary remains the home for the full articles.</p>
+</BaseLayout>

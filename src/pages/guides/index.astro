@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const guides = [
+  { category: 'KUBERNETES', title: 'Kubernetes troubleshooting checklist', description: 'A repeatable first-response workflow for pods, events, probes, networking, and resource pressure.', href: '/guides/kubernetes-troubleshooting/' },
+  { category: 'TERRAFORM', title: 'Terraform module design notes', description: 'Practical conventions for module boundaries, inputs, outputs, state, and environment reuse.', href: '/guides/terraform-module-design/' },
+  { category: 'RELIABILITY', title: 'From alerts to actionable signals', description: 'A starting point for thinking about alert quality, service indicators, and incident context.', href: '/guides/observability-basics/' }
+];
+---
+<BaseLayout title="Guides | Sowmya Narayan" description="Markdown-based technical guides about Kubernetes, Terraform, and reliability." active="guides">
+  <section class="page-hero">
+    <p class="eyebrow">/ guides</p>
+    <h1>Field notes from<br /><span class="accent">the platform lab.</span></h1>
+    <p class="hero-text">Technical notes written in Markdown. Add a guide as a file, commit it to GitHub, and let the site build the page.</p>
+  </section>
+  <section class="guide-list">
+    {guides.map((g, i) => <a class="guide-card" href={g.href}>
+      <span class="guide-index">0{i+1}</span><div><span class="card-index">{g.category}</span><h2>{g.title}</h2><p>{g.description}</p></div><span class="guide-arrow">↗</span>
+    </a>)}
+  </section>
+  <div class="content-panel"><p class="eyebrow">HOW TO ADD A GUIDE</p><p>Create a new Markdown file in <code>src/pages/guides/</code>, add a layout/frontmatter block, write the guide, then commit and push. See the README for the workflow.</p></div>
+</BaseLayout>

@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Contact | Sowmya Narayan" description="Contact Sowmya Narayan about platform engineering, DevOps, and cloud-native opportunities." active="contact">
+  <section class="page-hero">
+    <p class="eyebrow">/ contact</p>
+    <h1>Have a good problem?<br /><span class="accent">Let's talk.</span></h1>
+    <p class="hero-text">For project collaboration, cloud and DevOps discussions, mentorship, or community projects, use one of the links below.</p>
+  </section>
+  <section class="contact-grid">
+    <a class="contact-card" href="https://github.com/Tech-Galary/" target="_blank" rel="noreferrer"><span class="card-index">CODE & PROJECTS</span><h2>GitHub <span>↗</span></h2><p>Explore public repositories and engineering experiments.</p></a>
+    <a class="contact-card" href="https://www.linkedin.com/in/sowmya-n-80931663/" target="_blank" rel="noreferrer"><span class="card-index">PROFESSIONAL NETWORK</span><h2>LinkedIn <span>↗</span></h2><p>Connect about roles, teams, and professional opportunities.</p></a>
+    <a class="contact-card" href="https://www.youtube.com/@techgalary/" target="_blank" rel="noreferrer"><span class="card-index">VIDEO & KNOWLEDGE SHARING</span><h2>TechGalary on YouTube <span>↗</span></h2><p>Visit my channel for cloud, DevOps, and technology learning content.</p></a>
+    <a class="contact-card" href="mailto:sowmyanx@gmail.com"><span class="card-index">EMAIL</span><h2>Email Me <span>↗</span></h2><p>sowmyanx@gmail.com</p></a>
+  </section>
+  <section class="contact-form-section">
+    <div class="contact-form-intro">
+      <p class="eyebrow">/ send a message</p>
+      <h2>Let's start a conversation.</h2>
+      <p>Tell me what you'd like to discuss, whether it's a role, a technical topic, mentorship, or collaboration.</p>
+    </div>
+    <form class="contact-form" id="contact-form">
+      <label for="contact-name">Your name</label>
+      <input id="contact-name" name="name" autocomplete="name" required placeholder="Your name" />
+      <label for="contact-email">Email address</label>
+      <input id="contact-email" name="email" type="email" autocomplete="email" required placeholder="you@example.com" />
+      <label for="contact-topic">Topic</label>
+      <select id="contact-topic" name="topic" required>
+        <option value="Project collaboration">Project collaboration</option>
+        <option value="Ask Me Anything">Ask Me Anything</option>
+        <option value="Job opportunity">Job opportunity</option>
+        <option value="Cloud / DevOps discussion">Cloud / DevOps discussion</option>
+        <option value="Career mentorship">Career mentorship</option>
+        <option value="Opportunity Card experience">Opportunity Card experience</option>
+        <option value="Community / collaboration">Community / collaboration</option>
+        <option value="Other">Other</option>
+      </select>
+      <label for="contact-message">Message</label>
+      <textarea id="contact-message" name="message" rows="5" required placeholder="How can I help?"></textarea>
+      <button type="submit" class="contact-submit">Prepare message ↗</button>
+      <p class="note" id="contact-form-note">Submitting opens your email app with a draft addressed to me. Nothing is sent automatically.</p>
+    </form>
+  </section>
+  <script>
+    const form = document.querySelector('#contact-form');
+    const note = document.querySelector('#contact-form-note');
+    form?.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const data = new FormData(form);
+      const subject = encodeURIComponent(`[Portfolio contact] ${data.get('topic')}`);
+      const body = encodeURIComponent(`Name: ${data.get('name')}\nReply email: ${data.get('email')}\nTopic: ${data.get('topic')}\n\n${data.get('message')}`);
+      window.location.href = `mailto:sowmyanx@gmail.com?subject=${subject}&body=${body}`;
+      if (note) note.textContent = 'Your email app should open with the message drafted. Please review and send it from your email app.';
+    });
+  </script>
+</BaseLayout>

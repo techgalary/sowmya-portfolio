@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const groups = [
+  ['Cloud platforms', 'Azure', 'Google Cloud', 'AKS', 'GKE', 'Cloud networking', 'IAM'],
+  ['Containers & orchestration', 'Kubernetes', 'Helm', 'OpenShift', 'Rancher', 'Argo CD'],
+  ['Infrastructure as code', 'Terraform', 'Terragrunt', 'Terraform modules', 'Infrastructure automation'],
+  ['CI/CD & GitOps', 'GitLab CI', 'GitHub Actions', 'Argo CD', 'Deployment automation'],
+  ['Observability & reliability', 'Prometheus', 'Grafana', 'Alertmanager', 'Dynatrace', 'SLO / SLI'],
+  ['Security & operations', 'HashiCorp Vault', 'Azure Key Vault', 'Microsoft Entra ID', 'Incident response', 'Vulnerability remediation']
+];
+---
+<BaseLayout active="skills" title="Skills | Sowmya Narayan">
+<section class="page-hero"><p class="eyebrow">/ skills</p><h1>The tools I work with.<br /><span class="accent">The problems I help solve.</span></h1><p class="hero-text">My work spans public cloud infrastructure, Kubernetes, infrastructure as code, CI/CD automation, monitoring, and production support. Here's an overview of the technologies I've used and the engineering practices I apply to keep systems reliable.</p></section>
+<section class="skills-grid full-skills">{groups.map((g,i)=><article class="skill-card"><div class="skill-card-top"><span class="skill-number">0{i+1}</span><span class="skill-marker">✳</span></div><h3>{g[0]}</h3><div class="tag-row">{g.slice(1).map(t=><span>{t}</span>)}</div></article>)}</section>
+</BaseLayout>
