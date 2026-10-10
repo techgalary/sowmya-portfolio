@@ -6,10 +6,10 @@ const {
   active = ''
 } = Astro.props;
 const links = [
-  { href: `${import.meta.env.BASE_URL.replace(/\/?$/, '/') }about/`, label: 'About', key: 'about' },
-  { href: `${import.meta.env.BASE_URL.replace(/\/?$/, '/') }skills/`, label: 'Skills', key: 'skills' },
-  { href: `${import.meta.env.BASE_URL.replace(/\/?$/, '/') }projects/`, label: 'Projects', key: 'projects' },
-  { href: `${import.meta.env.BASE_URL.replace(/\/?$/, '/') }blog/`, label: 'Blog', key: 'blog' }
+  { href: `${import.meta.env.BASE_URL}about/`, label: 'About', key: 'about' },
+  { href: `${import.meta.env.BASE_URL}skills/`, label: 'Skills', key: 'skills' },
+  { href: `${import.meta.env.BASE_URL}projects/`, label: 'Projects', key: 'projects' },
+  { href: `${import.meta.env.BASE_URL}blog/`, label: 'Blog', key: 'blog' }
 ];
 ---
 <!doctype html>
