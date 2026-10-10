@@ -1,6 +1,15 @@
+
 import { defineConfig } from 'astro/config';
 
+const isGitHubProjectPage =
+  process.env.GITHUB_PAGES === 'true';
+
 export default defineConfig({
-  site: 'https://sowmyanarayan.com',
-  output: 'static'
+  site: isGitHubProjectPage
+    ? 'https://techgalary.github.io'
+    : 'https://sowmyanarayan.com',
+  base: isGitHubProjectPage
+    ? '/sowmya-portfolio'
+    : '/',
+  output: 'static',
 });
