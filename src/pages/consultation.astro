@@ -1,49 +1,135 @@
 ---
+
 import BaseLayout from '../layouts/BaseLayout.astro';
-const services = [
-  { title: 'Chancenkarte Visa Q&A', type: 'PERSONAL EXPERIENCE', price: '€10', format: 'Question & answer discussion', description: 'Talk through my Germany Opportunity Card journey, preparation, and lessons learned. This is personal-experience guidance only, not legal advice or an official visa service.', action: 'Ask about guidance', href: '/contact/?topic=Opportunity%20Card%20experience' },
-  { title: 'Priority DM', type: 'ASYNC QUESTIONS', price: '', format: 'Contact first', description: 'Send a focused question about my Germany journey, career transition, DevOps experience, or technology community events. I’ll confirm whether it’s a topic I can help with before we proceed.', action: 'Send a message', href: '/contact/?topic=Other' },
-  { title: 'Ask Me Anything', type: 'WRITTEN RESPONSE', price: '€5', format: 'One written response', description: 'Ask one focused question about topics I can speak to from personal experience, including cloud and DevOps work, job-search lessons, relocation preparation, or tech communities.', action: 'Ask a question', href: '/contact/?topic=Ask%20Me%20Anything' },
-  { title: '1:1 Career Mentorship', type: 'ONE-TO-ONE CONVERSATION', price: '€20', format: '45-minute session', description: 'Discuss career direction, platform and cloud engineering experience, professional development, and practical job-search strategies in a one-to-one conversation.', action: 'Discuss mentorship', href: '/contact/?topic=Career%20mentorship' }
-];
----
-<BaseLayout active="consultation" title="Book a Session | Sowmya Narayan" description="Personal-experience guidance about Germany relocation, cloud and DevOps careers, and career direction.">
-  <section class="consultation-heading">
-    <p class="eyebrow">/ guidance & mentorship</p>
-    <h1>Let's work through<br /><span class="accent">your next steps.</span></h1>
-    <p class="hero-text">I can share what I've learned from my own Germany journey and my work in cloud and DevOps. Choose a topic below and get in touch to discuss what would be useful.</p>
-  </section>
-  <section class="consultation-grid">
-    {services.map((s) => <article class="consultation-card">
-      <p class="consultation-type">{s.type}</p>
-      <h2>{s.title}</h2>
-      {s.price && <div class="consultation-price"><strong>{s.price}</strong><span>{s.format}</span></div>}
-      {!s.price && <div class="consultation-format">{s.format}</div>}
-      <p>{s.description}</p>
-      <a class="consultation-action" href={s.href}>{s.action} <span>↗</span></a>
-    </article>)}
-  </section>
-  <p class="consultation-note">Booking is contact-first for now. Please get in touch before paying or scheduling. Chancenkarte guidance reflects personal experience only and is not legal advice or an official visa service.</p>
-  <section class="collaboration-section" id="work-together">
-    <div class="collaboration-copy"><p class="eyebrow">/ project collaboration</p><h2>Have a project in mind?<br /><span class="accent">Let's work together.</span></h2><p>Need help thinking through cloud infrastructure, DevOps automation, Kubernetes, or observability? Tell me what you're working on and let's explore whether I can contribute.</p></div>
-    <form class="collaboration-form" id="collaboration-form">
-      <label for="collab-name">Your name</label><input id="collab-name" name="name" autocomplete="name" required placeholder="Your name" />
-      <label for="collab-email">Email address</label><input id="collab-email" name="email" type="email" autocomplete="email" required placeholder="you@example.com" />
-      <label for="collab-topic">What would you like to discuss?</label><select id="collab-topic" name="topic" required><option value="Project collaboration">Project collaboration</option><option value="Cloud and DevOps technical discussion">Cloud &amp; DevOps technical discussion</option><option value="Career mentorship">Career mentorship</option><option value="Chancenkarte Visa Q&A">Chancenkarte Visa Q&amp;A</option><option value="Ask Me Anything">Ask Me Anything</option><option value="Other">Other</option></select>
-      <label for="collab-message">A little context</label><textarea id="collab-message" name="message" rows="4" required placeholder="Tell me what you have in mind..."></textarea>
-      <button type="submit" class="contact-submit">Email your enquiry ↗</button><p class="note" id="collab-note">This form opens your email app with a draft addressed to me. Nothing is sent automatically.</p>
-    </form>
-  </section>
-  <script>
-    const collabForm = document.querySelector('#collaboration-form');
-    collabForm?.addEventListener('submit', (event) => {
-      event.preventDefault();
-      const data = new FormData(collabForm);
-      const subject = encodeURIComponent(`[Portfolio enquiry] ${data.get('topic')}`);
-      const body = encodeURIComponent(`Name: ${data.get('name')}\nReply email: ${data.get('email')}\nTopic: ${data.get('topic')}\n\n${data.get('message')}`);
-      window.location.href = `mailto:sowmyanx@gmail.com?subject=${subject}&body=${body}`;
-      const note = document.querySelector('#collab-note');
-      if (note) note.textContent = 'Your email app should open with the enquiry drafted. Please review and send it from your email app.';
-    });
-  </script>
-</BaseLayout>
+
+\<BaseLayout
+active="consultation"
+title="Book a Session | Sowmya Narayan"
+description="Personal-experience guidance about Germany relocation, cloud and DevOps careers, and career direction."
+
+>
+
+&#x20; \<section class="consultation-heading">
+&#x20;   \<p class="eyebrow">/ guidance &amp; mentorship\</p>
+&#x20;   \<h1>Let's work through\<br />\<span class="accent">your next steps.\</span>\</h1>
+&#x20;   \<p class="hero-text">
+&#x20;     I can share what I've learned from my own Germany journey and my work in cloud and DevOps. Choose a topic below and get in touch to discuss what would be useful.
+&#x20;   \</p>
+&#x20; \</section>
+
+&#x20; \<section class="consultation-grid">
+&#x20;   {services.map((s) => (
+&#x20;     \<article class="consultation-card">
+&#x20;       \<p class="consultation-type">{s.type}\</p>
+&#x20;       \<h2>{s.title}\</h2>
+&#x20;       {s.price && (
+&#x20;         \<div class="consultation-price">
+&#x20;           \<strong>{s.price}\</strong>
+&#x20;           \<span>{s.format}\</span>
+&#x20;         \</div>
+&#x20;       )}
+&#x20;       {!s.price && \<div class="consultation-format">{s.format}\</div>}
+&#x20;       \<p>{s.description}\</p>
+&#x20;       \<a class="consultation-action" href={s.href}>
+&#x20;         {s.action} \<span>↗\</span>
+&#x20;       \</a>
+&#x20;     \</article>
+&#x20;   ))}
+&#x20; \</section>
+
+&#x20; \<p class="consultation-note">
+&#x20;   Booking is contact-first for now. Please get in touch before paying or scheduling. Chancenkarte guidance reflects personal experience only and is not legal advice or an official visa service.
+&#x20; \</p>
+
+&#x20; \<section class="collaboration-section" id="work-together">     \<div class="collaboration-copy">       \<p class="eyebrow">/ project collaboration\</p>       \<h2>Have a project in mind?\<br />\<span class="accent">Let's work together.\</span>\</h2>       \<p>         Need help thinking through cloud infrastructure, DevOps automation, Kubernetes, or observability? Tell me what you're working on and let's explore whether I can contribute.       \</p>     \</div>
+
+```
+<form class="collaboration-form" id="collaboration-form">
+  <label for="collab-name">Your name</label>
+  <input id="collab-name" name="name" type="text" autocomplete="name" required placeholder="Your name" />
+
+  <label for="collab-email">Email address</label>
+  <input id="collab-email" name="email" type="email" autocomplete="email" required placeholder="you@example.com" />
+
+  <label for="collab-topic">What would you like to discuss?</label>
+  <select id="collab-topic" name="topic" required>
+    <option value="Project collaboration">Project collaboration</option>
+    <option value="Cloud and DevOps technical discussion">Cloud &amp; DevOps technical discussion</option>
+    <option value="Career mentorship">Career mentorship</option>
+    <option value="Chancenkarte Visa Q&A">Chancenkarte Visa Q&amp;A</option>
+    <option value="Ask Me Anything">Ask Me Anything</option>
+    <option value="Other">Other</option>
+  </select>
+
+  <label for="collab-message">A little context</label>
+  <textarea id="collab-message" name="message" rows="4" required placeholder="Tell me what you have in mind..."></textarea>
+
+  <button type="submit" class="contact-submit" id="collab-submit">
+    Send enquiry ↗
+  </button>
+  <p class="note" id="collab-note" role="status" aria-live="polite">
+    Your enquiry will be submitted directly to Sowmya without opening an email application.
+  </p>
+</form>
+```
+
+&#x20; \</section>
+
+&#x20; \<script>
+&#x20;   const collabForm = document.querySelector('#collaboration-form');
+&#x20;   const collabNote = document.querySelector('#collab-note');
+&#x20;   const collabSubmit = document.querySelector('#collab-submit');
+
+&#x20;   collabForm?.addEventListener('submit', async (event) => {
+&#x20;     event.preventDefault();
+
+&#x20;     if (!collabForm.reportValidity()) return;
+
+&#x20;     if (collabSubmit) {
+&#x20;       collabSubmit.disabled = true;
+&#x20;       collabSubmit.textContent = 'Sending…';
+&#x20;     }
+
+&#x20;     if (collabNote) {
+&#x20;       collabNote.textContent = 'Sending your enquiry…';
+&#x20;     }
+
+&#x20;     try {
+&#x20;       const formData = new FormData(collabForm);
+&#x20;       const topic = String(formData.get('topic') || 'Project collaboration');
+
+&#x20;       formData.set('\_subject', \`[Portfolio enquiry] ${topic}\`);
+
+&#x20;       const response = await fetch('[https://formspree.io/f/myekjnle](https://formspree.io/f/myekjnle)', {
+&#x20;         method: 'POST',
+&#x20;         body: formData,
+&#x20;         headers: {
+&#x20;           Accept: 'application/json'
+&#x20;         }
+&#x20;       });
+
+&#x20;       if (!response.ok) {
+&#x20;         throw new Error('Form submission failed');
+&#x20;       }
+
+&#x20;       if (collabNote) {
+&#x20;         collabNote.textContent =
+&#x20;           'Thank you! Your enquiry was submitted successfully. I’ll get back to you as soon as I can.';
+&#x20;       }
+
+&#x20;       collabForm.reset();
+&#x20;     } catch {
+&#x20;       if (collabNote) {
+&#x20;         collabNote.textContent =
+&#x20;           'Sorry, your enquiry could not be submitted. Please try again or use the Contact page.';
+&#x20;       }
+&#x20;     } finally {
+&#x20;       if (collabSubmit) {
+&#x20;         collabSubmit.disabled = false;
+&#x20;         collabSubmit.textContent = 'Send enquiry ↗';
+&#x20;       }
+&#x20;     }
+&#x20;   });
+&#x20; \</script>
+
+\</BaseLayout>
